@@ -1,0 +1,335 @@
+/*****VARIABLES*****/
+:root {
+    --color-primary: #001542;
+    --color-primary-darker: #01091a;
+    --color-secondary: #085454;
+    --color-secondary-darker: #052b2b;
+    --color-gray: #7A7A7A;
+    --color-gray-darker: #4e4e4e;
+    --color-white: #FFFFFF;
+    --color-white-darker: #e4e4e4;
+    --color-warning: #FFB30D;
+    --color-warning-darker: #e09900;
+
+    --color-dark: #181818;
+
+    --border-color: #e0e0e0;
+}
+
+/*****COMPOSITION*****/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+html, 
+body, 
+h1, h2, h3, h4, h5, h6,
+p,
+ol, ul, dl, dd
+ol[class],
+ul[class] {
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+}
+
+body > * {
+    padding: 1em;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2.25rem; }
+h3 { font-size: 2rem; }
+h4 { font-size: 1.75rem; }
+h5 { font-size: 1.5rem; }
+h6 { font-size: 1.25rem; }
+
+ol[class],
+ul[class] {
+    padding: 0;
+    list-style: none;
+}
+
+a[class] {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+input, select, textarea {
+    font-size: 1rem;
+}
+
+textarea {
+    resize: none;
+}
+
+.flow > * + * {
+    margin-top: var(--flow-space, 1em);
+}
+
+/*****UTILITY*****/
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: end;
+}
+
+.text-left {
+    text-align: start;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.radius {
+    border-radius: var(--radius-size, 0.5rem);
+}
+
+.shadow {
+    box-shadow: 4px 4px 10px rgb(0, 0, 0, 0.25);
+}
+
+.flex {
+    display: flex;
+}
+
+.flex[data-state~="wrap"] {
+    flex-wrap: wrap;
+}
+
+.flex[data-state~="justify-between"] {
+    justify-content: space-between;
+}
+
+.color-primary {
+    color: var(--color-primary);
+}
+
+.bg-primary {
+    background-color: var(--color-primary);
+}
+
+.color-secondary {
+    color: var(--color-secondary);
+}
+
+.bg-secondary {
+    background-color: var(--color-secondary);
+}
+
+.color-white {
+    color: var(--color-white);
+}
+
+.bg-white {
+    background-color: var(--color-white);
+}
+
+.color-gray {
+    color: var(--color-gray);
+}
+
+.bg-gray {
+    background-color: var(--color-gray);
+}
+
+
+/*****BLOCK*****/
+.side-form {
+    width: 30%;
+}
+
+.main-content {
+    width: 70%;
+}
+
+.btn {
+    --btn-base-font-color: var(--color-primary);
+    --btn-base-bg-color: var(--color-white);
+    --btn-altern-font-color: var(--color-white);
+    --btn-altern-bg-color: var(--color-primary);
+
+    cursor: pointer;
+    background-color: var(--btn-base-bg-color);
+    border: solid 1px var(--btn-base-bg-color);
+    border-radius: 0.25em;
+    color: var(--btn-base-font-color);
+    padding: 0.5em 0.75em;
+    transition: 
+        border-color ease 150ms,
+        background-color ease 150ms,
+        color-color ease 150ms;
+}
+
+.btn:hover {
+    border-color: var(--btn-altern-bg-color);
+    background-color: var(--btn-altern-bg-color);
+    color: var(--btn-altern-font-color);
+}
+
+.form-group > * {
+    --flow-space: 0.5em;
+    display: block;
+}
+
+.input-group {
+    display: flex;
+}
+
+.form-control {
+    border-radius: 0.25em;
+    padding: 0.5em 0.75em;
+    width: 100%;
+    border: solid 1px var(--border-color);
+    transition: 
+        box-shadow ease 150ms,
+        border-color ease 150ms;
+}
+
+.form-control:focus {
+    border-color: var(--color-warning);
+    box-shadow: 0 0 10px var(--color-warning);
+}
+
+.form-control:focus-visible {
+    outline: none;
+}
+
+.input-group > :not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.input-group > :not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.ing-list > * {
+    display: block;
+    padding: 0.5em 1em;
+    position: relative;
+}
+
+.ing-list > * > .close {
+    background-color: transparent;
+    border: none;
+    color: var(--color-gray);
+    cursor: pointer;
+    font-size: 0.75em;
+    position: absolute;
+    right: 1em;
+}
+
+.ing-list > :not(:last-child) {
+    border-bottom: solid 1px var(--border-color);
+}
+
+.ing-list > :first-child {
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+}
+
+.ing-list > :last-child {
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+}
+
+.row {
+    --gap-cards: 1em;
+    margin-inline: calc(-1 * var(--gap-cards));
+    row-gap: 1em;
+}
+
+.col {
+    width: 25%;
+    --flow-space: 1rem;
+    padding-inline: var(--gap-cards);
+}
+
+.card {
+    overflow: hidden;
+    opacity: 1;
+    transition: opacity ease-out 150ms;
+}
+
+.card > * + * {
+    padding: 1rem;
+}
+
+.recipe-img { 
+    display: flex;
+    align-items: center;
+    max-width: 30%;
+}
+
+.recipe-info {
+    flex: 1 1 0;
+    padding: 1em;
+}
+
+.recipe-info > h2 {
+    border-bottom: solid 8px var(--color-secondary);
+}
+
+.recipe-ing {
+    gap: 0.25em;
+}
+
+.recipe-ing > :not(:last-child)::after {
+    content: ",";
+}
+
+/*****EXCEPTIONS*****/
+.card[data-state="hide"] {
+    opacity: 0;
+}
+
+.btn[data-state="primary"] {
+    --btn-base-font-color: var(--color-white);
+    --btn-base-bg-color: var(--color-primary);
+    --btn-altern-font-color: var(--color-white);
+    --btn-altern-bg-color: var(--color-primary-darker);
+}
+
+.btn[data-state="secondary"] {
+    --btn-base-font-color: var(--color-white);
+    --btn-base-bg-color: var(--color-secondary);
+    --btn-altern-font-color: var(--color-white);
+    --btn-altern-bg-color: var(--color-secondary-darker);
+}
+
+.btn[data-state="gray"] {
+    --btn-base-font-color: var(--color-white);
+    --btn-base-bg-color: var(--color-gray);
+    --btn-altern-font-color: var(--color-dark);
+    --btn-altern-bg-color: var(--color-gray-darker);
+}
+
+.btn[data-state="white"] {
+    --btn-base-font-color: var(--color-gray);
+    --btn-base-bg-color: var(--color-white);
+    --btn-altern-font-color: var(--color-dark);
+    --btn-altern-bg-color: var(--color-white-darker);
+}
+
+.btn[data-state="warning"] {
+    --btn-base-font-color: var(--color-dark);
+    --btn-base-bg-color: var(--color-warning);
+    --btn-altern-font-color: var(--color-dark);
+    --btn-altern-bg-color: var(--color-warning-darker);
+}
